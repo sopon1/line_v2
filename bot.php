@@ -1,4 +1,12 @@
-<?php
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<?php
 $API_URL = 'https://api.line.me/v2/bot/message';
 $ACCESS_TOKEN = 'o651NudRMzsU5jfijiPgTiFpo2pAslFXFKL7/c9bUmXp8TmsF7zOm3DQUsCH3ctE0JRODvO4NLFe5eUu6oj+XVbhLjkr3q8DQXLscXy+vLFXBpWFDY+Hg6Z1lMr6LBamBrkNl3RZQZ83H+EoofmRLwdB04t89/1O/w1cDnyilFU='; 
 $channelSecret = 'f8bfb388c9ea304291635116d0547425';
@@ -33,3 +41,5 @@ function send_reply_message($url, $post_header, $post_body)
     return $result;
 }
 ?>
+</body>
+</html>
