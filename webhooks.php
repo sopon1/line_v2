@@ -1,11 +1,11 @@
-<?php 
+﻿<?php 
 
 require "vendor/autoload.php";
 include "admin/config.php";
 require_once('vendor/linecorp/line-bot-sdk/line-bot-sdk-tiny/LINEBotTiny.php');
 
 $access_token = "o651NudRMzsU5jfijiPgTiFpo2pAslFXFKL7/c9bUmXp8TmsF7zOm3DQUsCH3ctE0JRODvO4NLFe5eUu6oj+XVbhLjkr3q8DQXLscXy+vLFXBpWFDY+Hg6Z1lMr6LBamBrkNl3RZQZ83H+EoofmRLwdB04t89/1O/w1cDnyilFU=";
-
+$channelSecret = 'f8bfb388c9ea304291635116d0547425';
 $content = file_get_contents('php://input');
 $events = json_decode($content, true);
 
@@ -22,7 +22,7 @@ if (!is_null($events['events'])) {
 			## เปิดสำหรับใช้่งาน mysql message
 			// $text = searchMessage($text ,$conn);
 			$messages = setText($text);
-			sentToLine( $replyToken , $access_token  , $messages );
+			sentToLine( $replyToken , $access_token , $channelSecret , $messages );
 		}
 	}
 }
@@ -50,7 +50,7 @@ function searchMessage($text , $conn){
 	return $message;
 }
 
-function sentToLine($replyToken , $access_token  , $messages ){
+function sentToLine($replyToken , $access_token , $channelSecret , $messages ){
 	$url = 'https://api.line.me/v2/bot/message/reply';
 	$data = [
 		'replyToken' => $replyToken,
